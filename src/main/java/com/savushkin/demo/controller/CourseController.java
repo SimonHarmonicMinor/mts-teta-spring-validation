@@ -1,28 +1,20 @@
 package com.savushkin.demo.controller;
 
-import com.savushkin.demo.domain.Course;
-import com.savushkin.demo.service.CourseLister;
-import com.savushkin.demo.service.StatisticsCounter;
+import com.savushkin.demo.dao.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@RestController
+@Controller
 @RequestMapping("/course")
 public class CourseController {
-
 	@Autowired
-	private CourseLister courseLister;
-	@Autowired
-	private StatisticsCounter statisticsCounter;
+	private CourseRepository courseRepository;
 
-	@GetMapping("/interesting")
-	public List<Course> getInterestingCourses() {
-		statisticsCounter.countHandlerCall();
-		// У нас есть бизнес инсайт, что все интересные курсы написал Вася
-		return courseLister.coursesByAuthor("Вася");
+	@RequestMapping
+	public String courseTable(Model model) {
+		model.addAttribute("courses", courseRepository.findAll());
+		return "course_table";
 	}
 }
