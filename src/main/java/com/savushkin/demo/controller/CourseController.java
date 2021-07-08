@@ -1,10 +1,12 @@
 package com.savushkin.demo.controller;
 
 import com.savushkin.demo.dao.CourseRepository;
+import com.savushkin.demo.domain.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -27,5 +29,11 @@ public class CourseController {
 				courseRepository.findById(id).orElseThrow()
 		);
     return "course_form";
+  }
+
+  @PostMapping
+  public String submitCourseForm(Course course) {
+    courseRepository.save(course);
+    return "redirect:/course";
   }
 }
