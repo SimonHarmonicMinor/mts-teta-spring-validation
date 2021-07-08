@@ -5,6 +5,7 @@ import com.savushkin.demo.domain.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,9 +26,9 @@ public class CourseController {
   @RequestMapping("/{id}")
   public String courseForm(Model model, @PathVariable Long id) {
     model.addAttribute(
-    		"course",
-				courseRepository.findById(id).orElseThrow()
-		);
+        "course",
+        courseRepository.findById(id).orElseThrow()
+    );
     return "course_form";
   }
 
@@ -41,5 +42,11 @@ public class CourseController {
   public String courseForm(Model model) {
     model.addAttribute("course", new Course());
     return "course_form";
+  }
+
+  @DeleteMapping("/{id}")
+  public String deleteCourse(@PathVariable Long id) {
+    courseRepository.delete(id);
+    return "redirect:/course";
   }
 }
