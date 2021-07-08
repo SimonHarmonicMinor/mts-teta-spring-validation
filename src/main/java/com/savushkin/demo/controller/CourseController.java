@@ -36,4 +36,10 @@ public class CourseController {
     courseRepository.save(course);
     return "redirect:/course";
   }
+
+  @RequestMapping("/new")
+  public String courseForm(Model model) {
+    model.addAttribute("course", new Course());
+    return "course_form";
+  }
 }
