@@ -1,4 +1,4 @@
-package com.savushkin.demo.service;
+package com.demo.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

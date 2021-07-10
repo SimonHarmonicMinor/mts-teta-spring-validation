@@ -1,6 +1,6 @@
-package com.savushkin.demo.config;
+package com.demo.config;
 
-import com.savushkin.demo.service.StatisticsCounter;
+import com.demo.service.StatisticsCounter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

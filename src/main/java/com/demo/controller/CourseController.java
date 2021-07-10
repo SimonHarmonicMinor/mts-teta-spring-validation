@@ -1,7 +1,7 @@
-package com.savushkin.demo.controller;
+package com.demo.controller;
 
-import com.savushkin.demo.dao.CourseRepository;
-import com.savushkin.demo.domain.Course;
+import com.demo.dao.CourseRepository;
+import com.demo.domain.Course;
 import java.util.NoSuchElementException;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +24,13 @@ public class CourseController {
   @Autowired
   private CourseRepository courseRepository;
 
-  @RequestMapping
+  @GetMapping
   public String courseTable(Model model) {
     model.addAttribute("courses", courseRepository.findAll());
     return "course_table";
   }
 
-  @RequestMapping("/{id}")
+  @GetMapping("/{id}")
   public String courseForm(Model model, @PathVariable Long id) {
     model.addAttribute(
         "course",
@@ -47,7 +48,7 @@ public class CourseController {
     return "redirect:/course";
   }
 
-  @RequestMapping("/new")
+  @GetMapping("/new")
   public String courseForm(Model model) {
     model.addAttribute("course", new Course());
     return "course_form";

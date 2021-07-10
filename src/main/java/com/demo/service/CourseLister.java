@@ -1,7 +1,7 @@
-package com.savushkin.demo.service;
+package com.demo.service;
 
-import com.savushkin.demo.dao.CourseRepository;
-import com.savushkin.demo.domain.Course;
+import com.demo.dao.CourseRepository;
+import com.demo.domain.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

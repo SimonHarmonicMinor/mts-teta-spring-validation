@@ -1,6 +1,6 @@
-package com.savushkin.demo.dao;
+package com.demo.dao;
 
-import com.savushkin.demo.domain.Course;
+import com.demo.domain.Course;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;

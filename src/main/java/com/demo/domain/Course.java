@@ -1,4 +1,4 @@
-package com.savushkin.demo.domain;
+package com.demo.domain;
 
 import javax.validation.constraints.NotEmpty;
 
