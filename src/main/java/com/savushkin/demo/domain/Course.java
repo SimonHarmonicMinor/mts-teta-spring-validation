@@ -1,40 +1,45 @@
 package com.savushkin.demo.domain;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Course {
-	private Long id;
-	private String author;
-	private String title;
 
-	public Course() {
-	}
+  private Long id;
+  @NotEmpty(message = "Author should not be empty")
+  private String author;
+  @NotEmpty(message = "Title should not be empty")
+  private String title;
 
-	public Course(Long id, String author, String title) {
-		this.id = id;
-		this.author = author;
-		this.title = title;
-	}
+  public Course() {
+  }
 
-	public Long getId() {
-		return id;
-	}
+  public Course(Long id, String author, String title) {
+    this.id = id;
+    this.author = author;
+    this.title = title;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public String getAuthor() {
-		return author;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+  public String getAuthor() {
+    return author;
+  }
 
-	public String getTitle() {
-		return title;
-	}
+  public void setAuthor(String author) {
+    this.author = author;
+  }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
 }
