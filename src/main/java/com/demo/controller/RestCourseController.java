@@ -29,7 +29,7 @@ public class RestCourseController {
     return courseRepository.findById(id).orElseThrow();
   }
 
-  @PostMapping
+  @PostMapping("/submit")
   public List<Course> submitCourseForm(@RequestBody Course course) {
     courseRepository.save(course);
     return courseRepository.findAll();
