@@ -1,13 +1,9 @@
 package com.demo.domain;
 
-import javax.validation.constraints.NotEmpty;
-
 public class Course {
 
   private Long id;
-  @NotEmpty(message = "Author should not be empty")
   private String author;
-  @NotEmpty(message = "Title should not be empty")
   private String title;
 
   public Course() {
