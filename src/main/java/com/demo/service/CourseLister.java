@@ -2,6 +2,7 @@ package com.demo.service;
 
 import com.demo.dao.CourseRepository;
 import com.demo.domain.Course;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,15 +11,15 @@ import java.util.stream.Collectors;
 
 @Component
 public class CourseLister {
-	private final CourseRepository repository;
+    private final CourseRepository repository;
 
-	@Autowired
-	public CourseLister(CourseRepository repository) {
-		this.repository = repository;
-	}
+    @Autowired
+    public CourseLister(CourseRepository repository) {
+        this.repository = repository;
+    }
 
-	public List<Course> coursesByAuthor(String name) {
-		List<Course> allCourses = repository.findAll();
-		return allCourses.stream().filter(course -> course.getAuthor().equals(name)).collect(Collectors.toList());
-	}
+    public List<Course> coursesByAuthor(String name) {
+        List<Course> allCourses = repository.findAll();
+        return allCourses.stream().filter(course -> course.getAuthor().equals(name)).collect(Collectors.toList());
+    }
 }

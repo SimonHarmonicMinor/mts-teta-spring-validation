@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CourseRepository {
-	List<Course> findAll();
+    List<Course> findAll();
 
-	Optional<Course> findById(long id);
+    Optional<Course> findById(long id);
 
-	void save(Course course);
+    void save(Course course);
 
-	void delete(long id);
+    void delete(long id);
 
-	List<Course> findByTitleWithPrefix(String prefix);
+    List<Course> findByTitleWithPrefix(String prefix);
 }
